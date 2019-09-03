@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = @post.comments.find(params[:id])
+    @comment = @post.comments.friendly.find(params[:id])
     @comment_id = @comment.id
     @comment.destroy
   end
@@ -22,6 +22,6 @@ class CommentsController < ApplicationController
   end
 
   def set_post
-    @post = Post.find(params[:post_id])
+    @post = Post.friendly.find(params[:post_id])
   end
 end

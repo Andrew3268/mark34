@@ -1,9 +1,9 @@
 class FavoritesController < ApplicationController
   def update
-    favorite = Favorite.where(post: Post.find(params[:post]), user: current_user)
+    favorite = Favorite.where(post: Post.friendly.find(params[:post]), user: current_user)
     if favorite == []
       # Create the favorite
-      Favorite.create(post: Post.find(params[:post]), user: current_user)
+      Favorite.create(post: Post.friendly.find(params[:post]), user: current_user)
       @favorite_exists = true
     else
       #Delete the favorite(s)
