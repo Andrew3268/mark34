@@ -1,36 +1,93 @@
-<!-- <p id="notice"><%= notice %></p> -->
-<%= image_tag @post.image.url(:medium) %>
+<div class="layout">
+  <%= render 'shared/header' %>
+  <div class="wrap">
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-  <%= link_to like_post_path(@post), class: "like-btn", method: :put, remote: :true  do %>
-    <div><span><p>LIKE</p></span></div>
-    <span class="likes-count"><%= @post.get_upvotes.size %></span>
-  <% end %>
-</p>
+    <div class="show_warp">
 
-<%= link_to favorite_text, favorites_update_path(post: @post), id:'favorite_link', remote: true %>
+      <div class="ctn clearfix">
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+        <div class="image">
+          <div class="img_box">
+            <%= image_tag @post.image.url(:medium) %>
+          </div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+          <%= link_to like_post_path(@post), class: "like-btn", method: :put, remote: :true  do %>
+            <!-- <span>좋아요</span> -->
+            <div class="liked">
+              <i></i>
+              <em>liked!</em>
+              <!-- <span class="likes-count"><%= @post.get_upvotes.size %></span> -->
+            </div>
+          <% end %>
+          <span class="favorite"><%= link_to favorite_text, favorites_update_path(post: @post), id:'favorite_link', remote: true %></span>
+        </div>
 
-<!-- Comment Input Form -->
-<% if current_user %>
-  <%= form_with model: [@post, @comment] do |f| %>
-    <%= f.text_field :body, id: "comment_body" %>
-    <%= f.submit "Comment" %>
-  <% end %>
-<% else %>
-  <p>You need to <%= link_to "Login", new_user_session_path %> before you can comment.</p>
-<% end %>
-<div id="comment_pane">
-  <% @comments.each do |comment| %>
-    <%= render 'comments/comment', comment: comment %>
-  <% end %>
+        <div class="inner">
+          <h2><%= @post.title %></h2>
+          <!-- <p><%= @post.body %></p> -->
+          
+          <em>50,000원</em>
+          <div class="btn"><a href="#n">Buy Now on Coupang</a></div>
+          <!-- <p>** 리뷰 별점 시스템 적용하기!!!!</p> -->
+
+          <% if current_user.try(:admin?) %>
+            <div class="admin_controller">
+              <%= link_to 'Edit', edit_post_path(@post) %> |
+              <%= link_to 'Back', posts_path %>
+            </div>
+          <% end %>
+        </div>
+
+     </div><!--/.ctn-->
+
+    <!--  <div class="reason">
+        <div class="con">
+          <ul>
+            <h3>You have to buy(사야 하는 이유)</h3>
+            <li>so we’ve done the work for you. </li>
+            <li>when it comes to deciding whether or not to buy a product.</li>
+            <li>But, like we said, all of that takes time. So, let us be your Amazon </li>
+          </ul>
+        </div>
+
+        <div class="pro">
+          <ul>
+            <h3>You don't need to buy this(사지 않아도 되는 이유)</h3>
+            <li>guide and walk you through the top-rated, highest-reviewed </li>
+            <li>bedroom-related products on the site. Credit cards at the ready — </li>
+            <li>Personally, I'm generally impressed if an item has more than 1,000 </li>
+          </ul>
+        </div>
+     </div> -->
+
+
+     <div class="comment">
+      <!-- Comment Input Form -->
+      <% if current_user %>
+        <%= form_with model: [@post, @comment] do |f| %>
+          <%= f.text_field :body, id: "comment_body" %>
+          <%= f.submit "Comment" %>
+        <% end %>
+      <% else %>
+        <p>You need to <%= link_to "Login", new_user_session_path %> before you can comment.</p>
+      <% end %>
+      <div id="comment_pane">
+        <% @comments.each do |comment| %>
+          <%= render 'comments/comment', comment: comment %>
+        <% end %>
+      </div>
+     </div>
+
+    </div>
+
+  </div>
 </div>
+
+
+<script type="text/javascript">
+    $(function() {
+    $( "i" ).click(function() {
+      $( "i,em" ).toggleClass( "press", 1000 );
+    });
+  });
+</script>

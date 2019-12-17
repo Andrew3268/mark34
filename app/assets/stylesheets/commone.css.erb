@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap');
 h1,h2,h3,h4,h5,h6,p,ul,li,address,form,fieldset,legend,input,button,dl,dt,dd,table,thead,tbody,tfoot,tr,th,td{margin:0;padding:0;font-family:inherit;}
 a img{border:0;}/* a태그로 감싼 이미지의 파란 테두리 삭제 (ie9-10) */
-a{text-decoration:none;}
+a{text-decoration:none;color:#3d3d3d;}
 ul,li{list-style:none;}/* li앞에 동그라미 삭제 */
 em,address{font-style:normal;}
 fieldset{border:0;}/*테두리삭제*/
@@ -11,7 +12,7 @@ table caption{display:none;}
 .clearfix:after{display:block;clear:both;content:".";visibility:hidden;height:0;}
 .clearfix{display:block;}
 
-body{margin:0;padding:0;font-size:15px;color:#000;line-height:1.5;font-weight:300;/*background:#ebebe1;*/}
+body{margin:0;padding:0;font-size:15px;color:#3d3d3d;line-height:1.5;font-weight:300;background:#f2f2f2;font-family: 'Do Hyeon', sans-serif;}
 @media screen and (max-width:640px){
   body{font-size:13px;font-weight:400;}
 }
@@ -46,14 +47,14 @@ body{margin:0;padding:0;font-size:15px;color:#000;line-height:1.5;font-weight:30
 
 .navbar-nav{display:flex;margin:0;padding:0;list-style:none;flex-wrap:wrap;}
 .navbar-nav li{position:relative;}
-.navbar-nav li a{display:block;color:blue;font-size:1rem;}
-.navbar-nav li a:hover{color:#212121;}
+.navbar-nav li a{display:block;color:#08f;font-size:1rem;}
+.navbar-nav li a:hover{color:#08f;}
 .navbar-nav >li>a{margin:0;padding:0 12px;line-height:80px;color:#000;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;}
-.navbar-nav >li>a:hover{color:blue;}
+.navbar-nav >li>a:hover{color:#08f;}
 .navbar-nav >li.menu-item-has-children:hover>ul{opacity:1;top:auto;left:auto;animation:fade_in_up 300ms forwards;}
 .navbar-nav .sub-menu{position:absolute;width:110px;min-width:max-content;padding:12px 20px 20px;background-color:#fff;opacity:0;left:-9999px;z-index:6000;}
 .navbar-nav .sub-menu a{margin:0 -20px;padding:8px 20px 8px;}
-.navbar-nav .sub-menu a:hover{color:#fff;background-color:blue;}
+.navbar-nav .sub-menu a:hover{color:#fff;background-color:#08f;}
 .navbar-nav .sub-menu li.menu-item-has-children:hover > ul {opacity:1;top:-4px;left:calc(100% + 20px);animation:fade_in_up 300ms forwards;}
 .overlay-active .navbar-nav{display:none;}
 .responsive-nav{display:block;float:right;position:relative;right:0;width:32px;height:24px;z-index:9010;visibility:visible;opacity:1;cursor:pointer;transition:opacity 200ms linear, visibility 200ms linear, color 100ms linear;}

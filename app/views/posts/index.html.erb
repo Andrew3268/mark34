@@ -2,48 +2,59 @@
   <%= render 'shared/header' %>
   <div class="wrap">
   
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-
     <!-- <p id="notice"><%= notice %></p> -->
-
-    <% if user_signed_in? %>
-      Hello, <%= current_user.name %><br />
-      How are you TODAY? :D
-    <% else %>
-      Welcome Everyone :D
-    <% end %>
-    
-    <% if current_user.try(:admin?) %>
-      <p>You Are Admin</p>
-    <% end %>
-
-    
-
-    <h1>Posts</h1>
-    <% @posts.each do |post| %>
-      <%= link_to (image_tag post.image.url(:small)), post %>
-      <h2><%= link_to post.title, post %></h2>
-      <p><%= post.user.name %></p>
-      <p><%= post.body %></p>
-      <%= pluralize(post.comments.count, "Comment") %>
-      <%= post.get_upvotes.size %> Likes
-      <% if current_user.try(:admin?) %>
-        <%= link_to 'Edit', edit_post_path(post) %>
-        <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"}%>
+    <div class="index_header">
+      <% if user_signed_in? %>
+        <span class="username"><em>Hello,</em> <%= current_user.name %></span><br />
+        <span class="feeing">How are you TODAY? :D</span>
+      <% else %>
+        <span class="everyone">Welcome Everyone :D</span>
       <% end %>
-      
-    <% end %>
+      <div class="admin">
+        <% if current_user.try(:admin?) %>
+          <p>You Are Admin</p>
+        <% end %>
+      </div>
+    </div>
 
+    <div class="index_body clearfix">
+      <% @posts.each do |post| %>
+        <div class="boxes">  
+          <div class="image">
+            <div class="img_box">
+              <%= link_to (image_tag post.image.url(:small)), post %>
+            </div>
+            <!-- 이미지를 Canva에서 흰백배경에 같은 사이즈로 편집 > 사진 용량줄여주는 프로그램 으로 사이즈 축소 > 업로드 -->
+            <!-- <span>BY SOURCE</span> -->
+          </div>
 
-    <br>
+          <!-- <div class="tags clearfix">
+            <span>#TECH</span>
+            <span>#GADGET</span>
+            <span>#GEEKY</span>
+            <span>#AWESOME</span>
+          </div> -->
 
-    <div class="index_box">
-
+          <div class="inner clearfix">
+            <h2><%= link_to post.title, post %></h2>
+            <!-- <p><%= post.user.name %></p> -->
+            <!-- <p><%= post.body %></p> -->
+            <div class="comment_like">
+              <!-- <span class="comment"><i></i><%= pluralize(post.comments.count, "Comment") %></span> -->
+              <spna class="like"><i></i><%= post.get_upvotes.size %></spna>
+              <span>#TECH</span>
+              <span>#GADGET</span>
+            </div>
+            
+            <div class="admin_controller">
+              <% if current_user.try(:admin?) %>
+                <%= link_to 'Edit', edit_post_path(post) %>
+                <%= link_to "Delete", post_path(post), method: :delete, data: {confirm: "Are you sure?"}%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
 
   </div><!--./wrap -->

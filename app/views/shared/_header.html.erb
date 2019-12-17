@@ -6,11 +6,11 @@
     <div class="container">
       <nav class="site-navbar">
         <div class="box-left">
-          <a href="#" class="site-logo navbar-item nav_logo">Fromco</a>
+          <a href="/" class="site-logo navbar-item nav_logo">Fromco</a>
         </div>
         <div class="box-right">
           <ul id="primary-menu" class="main-menu navbar-nav">
-            <li id="menu-item-1811" class="menu-item current-menu-item"><a href="#">Home</a></li>
+            <li id="menu-item-1811" class="menu-item current-menu-item"><a href="/">Home</a></li>
             <li id="menu-item-1770" class="menu-item menu-item-has-children">
               <a href="#" aria-haspopup="true" aria-expanded="false">About Us</a>
               <ul class="sub-menu">
@@ -48,7 +48,9 @@
             <li id="menu-item-1805" class="menu-item"><a href="#">The News</a></li>
             <li id="menu-item-1806" class="menu-item"><a href="#">Contact Us</a></li> -->
             <% if user_signed_in? %>
-             <li id="menu-item-1777" class="menu-item"><%= link_to "Add New Post", new_post_path %></li>
+             <% if current_user.try(:admin?) %>
+               <li id="menu-item-1777" class="menu-item"><%= link_to "Add New Post", new_post_path %></li>
+             <% end %>
              <li id="menu-item-1805" class="menu-item"><%= link_to "My Favorites", favorites_path %></li>
              <li id="menu-item-1805" class="menu-item"><a href="#"><%= link_to('Logout', destroy_user_session_path, method: :delete) %></a></li>
             <% else %>

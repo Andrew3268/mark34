@@ -1,0 +1,126 @@
+/* Index Page */
+.index_header{margin-top:100px;text-align:center;}
+.index_header .username{font-size:20px;}
+.index_header .username em{font-weight:bold;}
+.index_header .feeling{font-size:17px;}
+.index_header .everyone{font-size:20px;}
+
+.index_body{}
+.index_body .boxes{float:left;width:30.33%;margin:1.5%;background:#fff;box-shadow:rgba(0, 0, 0, 0.1) 0px 1px 20px 0px;border-radius:20px;}
+.index_body .boxes .image{}
+.index_body .boxes .image .img_box{position:relative;height:340px;}
+.index_body .boxes .image .img_box img{width:80%;height:80%;border-radius:10px;object-fit:contain;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+.index_body .boxes .tags span{font-size:12px;background:#000;color:#fff;padding:5px 10px;margin:5px 5px 0 0;display:inline-block;font-weight:bold;}
+.index_body .boxes .inner{padding:0 15px 15px 15px;}
+.index_body .boxes .inner h2{margin:7px 0 15px 0;line-height:1.4;height:1.4em;overflow:hidden;display:-webkit-box;display:-ms-flexbox;display:box;vertical-align:top;text-overflow:ellipsis;-webkit-box-orient:vertical;-webkit-line-clamp:1;font-size:26px;}
+.index_body .boxes .inner span{}
+.index_body .boxes .inner p{margin-bottom:10px;line-height:1.3;height:3.6em;overflow:hidden;}
+.index_body .boxes .inner .comment_like{float:left;}
+/*.index_body .boxes .inner .comment_like .comment{margin-right:7px;}
+.index_body .boxes .inner .comment_like .comment i:before{font-family:fontawesome;content:'\f27b';font-style:normal;}*/
+.index_body .boxes .inner .comment_like .like{margin-right:10px;}
+.index_body .boxes .inner .comment_like .like i{margin-right:3px;color:red;}
+.index_body .boxes .inner .comment_like .like i:before{font-family:fontawesome;content:'\f004';font-style:normal;}
+.index_body .boxes .inner .admin_controller{float:right;}
+
+
+/* Show Page */
+.show_warp{margin-top:150px;}
+.show_warp .ctn, .show_warp .reason, .show_warp .comment{width:1000px;margin:0 auto 50px auto;}
+.show_warp .ctn{background:#fff;box-shadow:rgba(0, 0, 0, 0.1) 0px 1px 20px 0px;border-radius:20px;}
+.show_warp .ctn .image{float:left;width:40%;padding:3%;}
+.show_warp .ctn .image .img_box{width:400px;height:350px;position:relative;}
+.show_warp .ctn .image .favorite{margin-left:15px;font-size:27px;}
+.show_warp .ctn .image .favorite a{color:#aaa;}
+.show_warp .ctn .image img{width:80%;height:80%;object-fit:contain;position:absolute;top:50%;left:50%;transform:translate(-50%, -50%);}
+.show_warp .ctn .inner{float:left;width:46%;padding:3%;margin-top:50px;text-align:center;}
+.show_warp .ctn .inner h2{font-size:30px;line-height:1.1;}
+.show_warp .ctn .inner p{margin:10px 0;}
+.show_warp .ctn .inner em{margin:25px 0;display:block;font-size:40px;}
+.show_warp .ctn .inner .btn{}
+.show_warp .ctn .inner .btn a{text-align:center;background:#08f;padding:15px;border-radius:30px;display:inline-block;color:#fff;font-size:20px;width:50%;}
+.show_warp .reason{}
+.show_warp .reason h3{margin-bottom:7px;border-bottom:2px solid #ccc;display:inline-block;}
+.show_warp .reason ul li{list-style:inside;padding-left:10px;}
+.show_warp .reason .con{margin-bottom:10px;}
+.show_warp .reason .pro{}
+
+
+
+
+.favorite i:before{font-family:fontawesome;content:'\f067';font-style:normal;}
+
+
+
+div.liked {
+  /*height:100px;*/
+  margin:0 auto;
+  display:inline-block;
+  position: relative;
+  font-size:30px;
+}
+
+.liked i {
+  cursor:pointer;
+  padding:10px 0 8px;
+  background:#fff;
+  border-radius:50%;
+  display:inline-block;
+  margin:0 0 15px;
+  color:#aaa;
+  transition:.2s;
+}
+
+.liked i:hover {
+  color:#666;
+}
+
+.liked i:before {
+  font-family:fontawesome;
+  content:'\f004';
+  font-style:normal;
+}
+
+.favorited i:before {
+  font-family:fontawesome;
+  content:'\f004';
+  font-style:normal;
+}
+
+.liked em {
+  position: absolute;
+  bottom:70px;
+  left:0;
+  right:0;
+  visibility: hidden;
+  transition:.6s;
+  z-index:-2;
+  font-size:2px;
+  color:transparent;
+  font-weight:400;
+}
+
+.liked i.press {
+  animation: size .4s;
+  color:#e23b3b;
+}
+
+.liked em.press {
+  bottom:120px;
+  font-size:14px;
+  visibility:visible;
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  0% {color:#transparent;}
+  50% {color:#e23b3b;}
+  100% {color:#transparent;}
+}
+
+@keyframes size {
+  0% {padding:10px 12px 8px;}
+  50% {padding:14px 16px 12px;  
+    margin-top:-4px;}
+  100% {padding:10px 12px 8px;}
+}
